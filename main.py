@@ -35,12 +35,9 @@ def add_upstream(this_host,upstream, upstream_status):
     #print "{}".format(r.text)
 
 def delete_upstream(this_host,upstream):
-  #curl  -X POST -d '{ "server": "koba-report01.oradm.net" }' -s http://127.0.0.1:8080/api/5/http/results/beta_reporting/servers
   '''
   Remove a server from the upstream 
   '''
-
-  #curl -GET  'http://127.0.0.1:8080/api/5/http/upstreams/beta_web' 
   url = "http://127.0.0.1:8080/api/5/http/upstreams/{}/servers".format(upstream)
   r = http.request('GET', url)
   results = json.loads(r.data)
@@ -90,9 +87,7 @@ def down_upstream(this_host,upstream,upstream_status):
 def drain_upstream(this_host,upstream,upstream_status):
   '''
   Up server in the pool
-  '''
-  # curl -X PATCH -d '{ "drain": true }' -s 'http://127.0.0.1:8080/api/5/http/upstreams/appservers/servers/0'    
-
+  '''   
   x = 0
   while x < len(upstream_status):
     if this_host.hostname == upstream_status[x]['server']:
@@ -162,7 +157,6 @@ def get_status(this_host, upstream, upstream_status):
   '''
   Get API status of pool
   '''
-  #curl -GET  'http://127.0.0.1:8080/api/5/http/upstreams/beta_web' 
   url = "http://127.0.0.1:8080/api/5/http/upstreams/{}".format(upstream)
   r = http.request('GET', url)
   results = json.loads(r.data)
