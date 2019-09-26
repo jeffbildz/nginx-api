@@ -1,3 +1,6 @@
+Provide a python interface to:
+* https://docs.nginx.com/nginx/admin-guide/load-balancer/dynamic-configuration-api/
+
 Usage:
 * main.py hostname ip_address action upstream
 * status
