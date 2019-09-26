@@ -1,5 +1,5 @@
 Usage:
-* nginx_web_new.py hostname ip_address action upstream
+* main.py hostname ip_address action upstream
 * status
 ```
 $ ./main.py  someserver.domain.com 192.168.1.224 status web_pool
